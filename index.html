@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>කේන්දර පත්‍රය</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+
+  <div class="controls">
+    <button type="button" class="btn btn-pdf" onclick="saveAsPDF()">📄 Save as PDF</button>
+    <button type="button" class="btn btn-reset" onclick="resetDefaults()">🔄 Reset</button>
+    <span id="status" class="status-msg"></span>
+  </div>
+
+  <form id="kendaraya-form">
+    <div class="print-sheet" id="kendaraya-content">
+      <!-- පේළිය 1 -->
+      ක්‍රිස්තු වර්ෂයෙන් 
+      <select id="c_year" class="auto-fill-year"></select> වූ 
+      <select id="c_month">
+        <option value="ජනවාරි">ජනවාරි</option><option value="පෙබරවාරි">පෙබරවාරි</option><option value="මාර්තු">මාර්තු</option>
+        <option value="අප්‍රේල්">අප්‍රේල්</option><option value="මැයි">මැයි</option><option value="ජූනි">ජූනි</option>
+        <option value="ජූලි">ජූලි</option><option value="අගෝස්තු">අගෝස්තු</option><option value="සැප්තැම්බර්">සැප්තැම්බර්</option>
+        <option value="ඔක්තෝබර්">ඔක්තෝබර්</option><option value="නොවැම්බර්">නොවැම්බර්</option><option value="දෙසැම්බර්">දෙසැම්බර්</option>
+      </select> මස 
+      <select id="c_date" class="auto-fill-31"></select> වෙනි 
+      <select id="c_weekday">
+        <option value="ඉරිදා">ඉරිදා</option><option value="සඳුදා">සඳුදා</option><option value="අඟහරුවාදා">අඟහරුවාදා</option>
+        <option value="බදාදා">බදාදා</option><option value="බ්‍රහස්පතින්දා">බ්‍රහස්පතින්දා</option><option value="සිකුරාදා">සිකුරාදා</option>
+        <option value="සෙනසුරාදා">සෙනසුරාදා</option>
+      </select> දින 
+      <select id="c_daynight"><option value="දිවා">දිවා</option><option value="රාත්‍රී">රාත්‍රී</option></select> 
+      <select id="c_time_hour" class="auto-fill-12-hours"></select> . 
+      <select id="c_time_minute" class="auto-fill-60-min"></select> ට
+
+      <br>
+      <!-- පේළිය 2 (ලග්න 12 සහිතයි) -->
+      හෙවත් ශකවර්ෂ 
+      <select id="s_year" class="auto-fill-shaka"></select> ක්වූ 
+      <select id="s_month">
+        <option value="මේෂ">මේෂ</option><option value="වෘෂභ">වෘෂභ</option><option value="මිථුන">මිථුන</option>
+        <option value="කටක">කටක</option><option value="සිංහ">සිංහ</option><option value="කන්‍යා">කන්‍යා</option>
+        <option value="තුලා">තුලා</option><option value="වෘශ්චික">වෘශ්චික</option><option value="ධනු">ධනු</option>
+        <option value="මකර">මකර</option><option value="කුම්භ">කුම්භ</option><option value="මීන">මීන</option>
+      </select> රවි 
+      <select id="s_ravi_date" class="auto-fill-31"></select> වෙනි භාග වූ 
+      <select id="s_paksha">
+        <option value="පුර">පුර</option><option value="අව">අව</option>
+      </select> 
+      <select id="s_thithi">
+        <option value="පෑලවිය">පෑලවිය</option><option value="දියවක">දියවක</option><option value="තියවක">තියවක</option>
+        <option value="ජලවක">ජලවක</option><option value="විසේනිය">විසේනිය</option><option value="සැටවක">සැටවක</option>
+        <option value="සතවක">සතවක</option><option value="අටවක">අටවක</option><option value="නවවක">නවවක</option>
+        <option value="දසවක">දසවක</option><option value="එකොළොස්වක">එකොළොස්වක</option><option value="දොළොස්වක">දොළොස්වක</option>
+        <option value="තෙළෙස්වක">තෙළෙස්වක</option><option value="තුදුස්වක">තුදුස්වක</option><option value="පසළොස්වක / අමාවක">පසළොස්වක / අමාවක</option>
+      </select> තිථිය ලත් 
+      <select id="s_weekday">
+        <option value="ඉරිදා">ඉරිදා</option><option value="සඳුදා">සඳුදා</option><option value="අඟහරුවාදා">අඟහරුවාදා</option>
+        <option value="බදාදා">බදාදා</option><option value="බ්‍රහස්පතින්දා">බ්‍රහස්පතින්දා</option><option value="සිකුරාදා">සිකුරාදා</option>
+        <option value="සෙනසුරාදා">සෙනසුරාදා</option>
+      </select> රවි 
+
+      <br>
+      <!-- පේළිය 3 (විනාඩි 0-60 සිංහලෙන් සහිතයි) -->
+      දින ඔරලෝසු වේලාවෙන් 
+      <select id="clock_daynight"><option value="දිවා">දිවා</option><option value="රාත්‍රී">රාත්‍රී</option></select> 
+      <select id="clock_hour">
+        <option value="01 (එක)">01 (එක)</option><option value="02 (දෙක)">02 (දෙක)</option><option value="03 (තුන)">03 (තුන)</option>
+        <option value="04 (හතර)">04 (හතර)</option><option value="05 (පහ)">05 (පහ)</option><option value="06 (හය)">06 (හය)</option>
+        <option value="07 (හත)">07 (හත)</option><option value="08 (අට)">08 (අට)</option><option value="09 (නමය)">09 (නමය)</option>
+        <option value="10 (දහය)">10 (දහය)</option><option value="11 (එකොළහ)">11 (එකොළහ)</option><option value="12 (දොළහ)">12 (දොළහ)</option>
+      </select> 
+      පසුවී විනාඩි 
+      <select id="clock_minute"></select> 
+      ට පමණ උපන් පින්වත් 
+      <select id="gender"><option value="කුමරු">කුමරු</option><option value="කුමරිය">කුමරිය</option></select> 
+      හට හිමි වූ ජන්ම නැකැත් කෙරෙන් 
+
+      
+      <!-- පේළිය 4 -->
+      <select id="nakatha">
+        <option value="අස්විද">අස්විද</option><option value="බෙරණ">බෙරණ</option><option value="කැති">කැති</option>
+        <option value="රෙහෙණ">රෙහෙණ</option><option value="මුවසිරස">මුවසිරස</option><option value="අද">අද</option>
+        <option value="පුනාවස">පුනාවස</option><option value="පුෂ">පුෂ</option><option value="අස්ලිස">අස්ලිස</option>
+        <option value="මා">මා</option><option value="පුවපල්">පුවපල්</option><option value="උත්‍රපල්">උත්‍රපල්</option>
+        <option value="හත">හත</option><option value="සිත">සිත</option><option value="සා">සා</option>
+        <option value="විසා">විසා</option><option value="අනුර">අනුර</option><option value="දෙට">දෙට</option>
+        <option value="මුල">මුල</option><option value="පුවසල">පුවසල</option><option value="උත්‍රසල">උත්‍රසල</option>
+        <option value="සුවණ">සුවණ</option><option value="දෙනට">දෙනට</option><option value="සියාවස">සියාවස</option>
+        <option value="පුවපුටුප">පුවපුටුප</option><option value="උත්‍රපුටුප">උත්‍රපුටුප</option><option value="රේවතී">රේවතී</option>
+      </select> 
+      නැකත <select id="pada"><option value="01">01</option><option value="02">02</option><option value="03">03</option><option value="04">04</option></select> වෙනි පාදයි 
+
+      <select id="gana">
+        <option value="දේව">දේව</option><option value="මනුෂ්‍ය">මනුෂ්‍ය</option><option value="රාක්ෂස">රාක්ෂස</option>
+      </select> ගණවනු 
+
+      <select id="yoni">
+        <option value="අශ්ව">අශ්ව</option><option value="ඇත්">ඇත්</option><option value="එළු">එළු</option>
+        <option value="සර්ප">සර්ප</option><option value="බලල්">බලල්</option><option value="මී">මී</option>
+        <option value="ගව">ගව</option><option value="කොටි">කොටි</option><option value="මුව">මුව</option>
+        <option value="වඳුරු">වඳුරු</option><option value="සිංහ">සිංහ</option><option value="මහිෂ">මහිෂ</option>
+        <option value="ව්‍යාඝ්‍ර">ව්‍යාඝ්‍ර</option><option value="කුක්කුර">කුක්කුර</option>
+      </select> යෝනිවනු 
+
+      <select id="vruksha">
+        <option value="කොහොඹ">කොහොඹ</option><option value="අත්තික්කා">අත්තික්කා</option><option value="දිඹුල්">දිඹුල්</option>
+        <option value="කරඹ">කරඹ</option><option value="නුග">නුග</option><option value="කළුවර">කළුවර</option>
+        <option value="වල්බිලිං">වල්බිලිං</option><option value="ඇහැළ">ඇහැළ</option><option value="පළු">පළු</option>
+        <option value="මඟුල් කරඳ">මඟුල් කරඳ</option><option value="බෝ">බෝ</option><option value="බෙලි">බෙලි</option>
+        <option value="දේවදාර">දේවදාර</option><option value="කුඹුක්">කුඹුක්</option>
+      </select> වෘක්ෂවනු 
+
+      <br>
+      <!-- පේළිය 5 -->
+      <select id="pakshi">
+        <option value="භේරුණ්ඩ">භේරුණ්ඩ</option><option value="පිඟාන">පිඟාන</option><option value="කාක්කා">කාක්කා</option>
+        <option value="කෝකිල">කෝකිල</option><option value="මොනරා">මොනරා</option><option value="කුකුළා">කුකුළා</option>
+      </select> පක්ෂිවනු 
+
+      <select id="bhutha">
+        <option value="පඨවි (පොළොව)">පඨවි (පොළොව)</option><option value="ආපෝ (ජලය)">ආපෝ (ජලය)</option>
+        <option value="තේජෝ (ගින්න)">තේජෝ (ගින්න)</option><option value="වායෝ (සුළඟ)">වායෝ (සුළඟ)</option>
+        <option value="ආකාශ (අහස)">ආකාශ (අහස)</option>
+      </select> භූතවනු 
+
+      <select id="gothra">
+        <option value="මරීචි">මරීචි</option><option value="වසිට්ඨ">වසිට්ඨ</option><option value="අංගීරස">අංගීරස</option>
+        <option value="අත්‍රි">අත්‍රි</option><option value="පුලස්ති">පුලස්ති</option><option value="පුලහ">පුලහ</option>
+        <option value="ක්‍රතු">ක්‍රතු</option><option value="භාරද්වාජ">භාරද්වාජ</option><option value="ගෞතම">ගෞතම</option>
+        <option value="කාශ්‍යප">කාශ්‍යප</option>
+      </select> ගෝත්‍රවනු 
+
+      <select id="varna">
+        <option value="ක්ෂත්‍රිය">ක්ෂත්‍රිය</option><option value="බ්‍රාහ්මණ">බ්‍රාහ්මණ</option>
+        <option value="වෛශ්‍ය">වෛශ්‍ය</option><option value="ශුද්‍ර">ශුද්‍ර</option>
+      </select> වර්ණවනු
+
+      <select id="linga">
+        <option value="ස්ත්‍රී">ස්ත්‍රී</option><option value="පුරුෂ">පුරුෂ</option><option value="නපුංසක">නපුංසක</option>
+      </select> ලිංගවනු 
+
+      <select id="nadi">
+        <option value="ආදි නාඩි">ආදි නාඩි</option><option value="මධ්‍ය නාඩි">මධ්‍ය නාඩි</option><option value="අන්ත නාඩි">අන්ත නාඩි</option>
+      </select> නාඩිවනු ශුභවූ අෂ්ටකූට හැර 
+
+      <!-- පේළිය 6 -->
+      <select id="dasa_planet">
+        <option value="කේතු">කේතු</option><option value="සිකුරු">සිකුරු</option><option value="රවි">රවි</option>
+        <option value="සඳු">සඳු</option><option value="කුජ">කුජ</option><option value="රාහු">රාහු</option>
+        <option value="ගුරු">ගුරු</option><option value="ශනි">ශනි</option><option value="බුධ">බුධ</option>
+      </select> හිමි 
+      විංශෝත්තරී මහ දශාශේෂය උපන් ඉදිරියට වර්ෂ 
+      <select id="dasa_years" class="auto-fill-zero-to-25"></select> මාස 
+      <select id="dasa_months" class="auto-fill-months"></select> දින 
+      <select id="dasa_days" class="auto-fill-days"></select> වේ.
+    
+      <!-- කේන්දර සටහන් 2ක Container එක -->
+      <div class="two-charts-container">
+        <!-- 1. ලග්න කේන්දරය -->
+        <div class="k-kundali-card">
+          <div class="k-grid">
+            <div class="k-cell corner-cell top-left">
+              <div class="tri tri-top"><div class="g-box" id="c1_r12"></div></div>
+              <div class="tri tri-bottom"><div class="g-box" id="c1_r1"></div></div>
+            </div>
+            <div class="k-cell edge-cell"><div class="g-box" id="c1_r2"></div></div>
+            <div class="k-cell corner-cell top-right">
+              <div class="tri tri-top"><div class="g-box" id="c1_r3"></div></div>
+              <div class="tri tri-bottom"><div class="g-box" id="c1_r4"></div></div>
+            </div>
+
+            <div class="k-cell edge-cell"><div class="g-box" id="c1_r11"></div></div>
+            <div class="k-cell k-center">
+              <select id="c1_lagna" class="lagna-pick"></select>
+              <div class="center-title">ලග්නය</div>
+            </div>
+            <div class="k-cell edge-cell"><div class="g-box" id="c1_r5"></div></div>
+
+            <div class="k-cell corner-cell bottom-left">
+              <div class="tri tri-top"><div class="g-box" id="c1_r10"></div></div>
+              <div class="tri tri-bottom"><div class="g-box" id="c1_r9"></div></div>
+            </div>
+            <div class="k-cell edge-cell"><div class="g-box" id="c1_r8"></div></div>
+            <div class="k-cell corner-cell bottom-right">
+              <div class="tri tri-top"><div class="g-box" id="c1_r6"></div></div>
+              <div class="tri tri-bottom"><div class="g-box" id="c1_r7"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. නවාංශක කේන්දරය -->
+        <div class="k-kundali-card">
+          <div class="k-grid">
+            <div class="k-cell corner-cell top-left">
+              <div class="tri tri-top"><div class="g-box" id="c2_r12"></div></div>
+              <div class="tri tri-bottom"><div class="g-box" id="c2_r1"></div></div>
+            </div>
+            <div class="k-cell edge-cell"><div class="g-box" id="c2_r2"></div></div>
+            <div class="k-cell corner-cell top-right">
+              <div class="tri tri-top"><div class="g-box" id="c2_r3"></div></div>
+              <div class="tri tri-bottom"><div class="g-box" id="c2_r4"></div></div>
+            </div>
+
+            <div class="k-cell edge-cell"><div class="g-box" id="c2_r11"></div></div>
+            <div class="k-cell k-center">
+              <select id="c2_lagna" class="lagna-pick"></select>
+              <div class="center-title">නවාංශකය</div>
+            </div>
+            <div class="k-cell edge-cell"><div class="g-box" id="c2_r5"></div></div>
+
+            <div class="k-cell corner-cell bottom-left">
+              <div class="tri tri-top"><div class="g-box" id="c2_r10"></div></div>
+              <div class="tri tri-bottom"><div class="g-box" id="c2_r9"></div></div>
+            </div>
+            <div class="k-cell edge-cell"><div class="g-box" id="c2_r8"></div></div>
+            <div class="k-cell corner-cell bottom-right">
+              <div class="tri tri-top"><div class="g-box" id="c2_r6"></div></div>
+              <div class="tri tri-bottom"><div class="g-box" id="c2_r7"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+
+  </form>
+
+  <script src="script.js"></script>
+</body>
+</html>
