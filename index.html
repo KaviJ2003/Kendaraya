@@ -192,7 +192,7 @@
           </div>
         </div>
 
-        <!-- 2. නවාංශක කේන්දරය -->
+        <!-- 2. නවම්ශය කේන්දරය -->
         <div class="k-kundali-card">
           <div class="k-grid">
             <div class="k-cell corner-cell top-left">
@@ -208,7 +208,7 @@
             <div class="k-cell edge-cell"><div class="g-box" id="c2_r11"></div></div>
             <div class="k-cell k-center">
               <select id="c2_lagna" class="lagna-pick"></select>
-              <div class="center-title">නවාංශකය</div>
+              <div class="center-title">නවම්ශය</div>
             </div>
             <div class="k-cell edge-cell"><div class="g-box" id="c2_r5"></div></div>
 
@@ -223,6 +223,327 @@
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- කේන්දර ඉහළ හැඳින්වීම් කොටස -->
+      <div class="k-header-intro">
+        <p class="intro-line">
+          ශ්‍රී ශකරාජ වර්ෂ 
+          <select id="shaka_year" class="num-select"></select> ක් වූ 
+          <select id="shaka_rashi" class="rashi-select"></select> රවි 
+          <select id="shaka_date" class="num-select"></select> භාග සඳු මසින් 
+          <select id="shaka_masa">
+            <option value="බක්" selected>බක්</option>
+            <option value="වෙසක්">වෙසක්</option>
+            <option value="පොසොන්">පොසොන්</option>
+            <option value="ඇසළ">ඇසළ</option>
+            <option value="නිකිණි">නිකිණි</option>
+            <option value="බිනර">බිනර</option>
+            <option value="වප්">වප්</option>
+            <option value="ඉල්">ඉල්</option>
+            <option value="උඳුවප්">උඳුවප්</option>
+            <option value="දුරුතු">දුරුතු</option>
+            <option value="නවම්">නවම්</option>
+            <option value="මැදින්">මැදින්</option>
+          </select> මස 
+          <select id="shaka_paksha">
+            <option value="පුර" selected>පුර</option>
+            <option value="අව">අව</option>
+          </select> 
+          <select id="shaka_thithi">
+            <option value="පාඩව">පාඩව</option>
+            <option value="දියවක">දියවක</option>
+            <option value="තියවක">තියවක</option>
+            <option value="ජලවක">ජලවක</option>
+            <option value="විශේනිය">විශේනිය</option>
+            <option value="සැටවක">සැටවක</option>
+            <option value="සතවක">සතවක</option>
+            <option value="අටවක">අටවක</option>
+            <option value="නවවක">නවවක</option>
+            <option value="දසවක">දසවක</option>
+            <option value="එකොළොස්වක">එකොළොස්වක</option>
+            <option value="දොළොස්වක">දොළොස්වක</option>
+            <option value="තෙළෙසවක">තෙළෙසවක</option>
+            <option value="තුදුස්වක">තුදුස්වක</option>
+            <option value="පසලොස්වක" selected>පසලොස්වක</option>
+            <option value="අමාවක">අමාවක</option>
+          </select> තිථියලත් 
+          <select id="shaka_day">
+            <option value="ඉරිදා">ඉරිදා</option>
+            <option value="සඳුදා" selected>සඳුදා</option>
+            <option value="අඟහරුවාදා">අඟහරුවාදා</option>
+            <option value="බදාදා">බදාදා</option>
+            <option value="බ්‍රහස්පතින්දා">බ්‍රහස්පතින්දා</option>
+            <option value="සිකුරාදා">සිකුරාදා</option>
+            <option value="සෙනසුරාදා">සෙනසුරාදා</option>
+          </select> දින හෙවත්,
+        </p>
+
+        <p class="intro-line">
+          ක්‍රි.ව: 
+          <select id="ce_year" class="num-select"></select> ක් වූ 
+          <select id="ce_month">
+            <option value="ජනවාරි">ජනවාරි</option>
+            <option value="පෙබරවාරි">පෙබරවාරි</option>
+            <option value="මාර්තු">මාර්තු</option>
+            <option value="අප්‍රේල්" selected>අප්‍රේල්</option>
+            <option value="මැයි">මැයි</option>
+            <option value="ජූනි">ජූනි</option>
+            <option value="ජූලි">ජූලි</option>
+            <option value="අගෝස්තු">අගෝස්තු</option>
+            <option value="සැප්තැම්බර්">සැප්තැම්බර්</option>
+            <option value="ඔක්තෝබර්">ඔක්තෝබර්</option>
+            <option value="නොවැම්බර්">නොවැම්බර්</option>
+            <option value="දෙසැම්බර්">දෙසැම්බර්</option>
+          </select> මස 
+          <select id="ce_date" class="num-select"></select> 
+          <select id="ce_day">
+            <option value="ඉරිදා">ඉරිදා</option>
+            <option value="සඳුදා" selected>සඳුදා</option>
+            <option value="අඟහරුවාදා">අඟහරුවාදා</option>
+            <option value="බදාදා">බදාදා</option>
+            <option value="බ්‍රහස්පතින්දා">බ්‍රහස්පතින්දා</option>
+            <option value="සිකුරාදා">සිකුරාදා</option>
+            <option value="සෙනසුරාදා">සෙනසුරාදා</option>
+          </select> දින සම්මත ඔරලෝසු වේලාවෙන් 
+          <select id="ce_time_ampm">
+            <option value="පෙරවරු">පෙරවරු</option>
+            <option value="පස්වරු" selected>පස්වරු</option>
+          </select> 
+          <input type="text" id="ce_time_val" class="time-input" value="04.13" />
+          (<input type="text" id="ce_time_adj" class="time-input" value="04.43" /> අධිකය ඉවත්කර සාදා ඇත)
+        </p>
+
+        <p class="intro-line">
+          ට උපත ලැබ 
+          <select id="child_gender_title">
+            <option value="පින්වත් කුමරුට" selected>පින්වත් කුමරුට</option>
+            <option value="පින්වත් කුමරියට">පින්වත් කුමරියට</option>
+          </select> හිමි,
+        </p>
+      </div>
+
+
+
+
+
+      <!-- කේන්දර විස්තර කොටස (Chart එකට පහළින්) -->
+      <div class="k-details-section">
+
+        <!-- Block 1: ලග්න / නවාංශක / හෝරා 6 -->
+        <div class="details-grid-3">
+          <div class="detail-item">
+            <select id="sel_lagna" class="rashi-dropdown"></select>
+            <span>ලග්නය</span>
+          </div>
+          <div class="detail-item">
+            <select id="sel_navamsha" class="rashi-dropdown"></select>
+            <span>නවාංශකය</span>
+          </div>
+          <div class="detail-item">
+            <select id="sel_hora" class="rashi-dropdown"></select>
+            <span>හෝරාංශකය</span>
+          </div>
+
+          <div class="detail-item">
+            <select id="sel_drekkana" class="rashi-dropdown"></select>
+            <span>දෙර්කාණය</span>
+          </div>
+          <div class="detail-item">
+            <select id="sel_dwadashamsha" class="rashi-dropdown"></select>
+            <span>ද්වා දශාංශකය</span>
+          </div>
+          <div class="detail-item">
+            <select id="sel_trishamsha" class="rashi-dropdown"></select>
+            <span>ත්‍රිශාංශකය හිමිවේ.</span>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Block 2: නැකත සහ පෝරොන්දම් ගැලපීම් -->
+        <div class="details-grid-3">
+          <div class="detail-item">
+            <select id="sel_nakatha">
+              <option value="">නැකත තෝරන්න</option>
+              <option value="අස්විද">අස්විද</option><option value="බෙරණ">බෙරණ</option>
+              <option value="කැති">කැති</option><option value="රෙහෙණ">රෙහෙණ</option>
+              <option value="මුවසිරස">මුවසිරස</option><option value="අද">අද</option>
+              <option value="පුනාවස">පුනාවස</option><option value="පුෂ">පුෂ</option>
+              <option value="අස්ලිස">අස්ලිස</option><option value="මා">මා</option>
+              <option value="පුවපල්">පුවපල්</option><option value="උත්‍රපල්">උත්‍රපල්</option>
+              <option value="හත" selected>හත</option><option value="සිත">සිත</option>
+              <option value="සා">සා</option><option value="විසා">විසා</option>
+              <option value="අනුර">අනුර</option><option value="දෙට">දෙට</option>
+              <option value="මුල">මුල</option><option value="පුවසල">පුවසල</option>
+              <option value="උත්‍රසල">උත්‍රසල</option><option value="සුවණ">සුවණ</option>
+              <option value="දෙනට">දෙනට</option><option value="සියාවස">සියාවස</option>
+              <option value="පුවපුටුප">පුවපුටුප</option><option value="උත්‍රපුටුප">උත්‍රපුටුප</option>
+              <option value="රේවතී">රේවතී</option>
+            </select>
+            <span>නැකත</span>
+          </div>
+          <div class="detail-item">
+            <select id="sel_paadaya">
+              <option value="1">1</option><option value="2">2</option>
+              <option value="3">3</option><option value="4" selected>4</option>
+            </select>
+            <span>පාදය</span>
+          </div>
+          <div class="detail-item">
+            <select id="sel_bhootha">
+              <option value="පඨවි">පඨවි</option><option value="ආපෝ">ආපෝ</option>
+              <option value="තේජෝ" selected>තේජෝ</option><option value="වායෝ">වායෝ</option>
+              <option value="ආකාශ">ආකාශ</option>
+            </select>
+            <span>භූත</span>
+          </div>
+
+          <div class="detail-item">
+            <select id="sel_gana">
+              <option value="දේව" selected>දේව</option>
+              <option value="මනුෂ්‍ය">මනුෂ්‍ය</option>
+              <option value="රාක්ෂස">රාක්ෂස</option>
+            </select>
+            <span>ගණ</span>
+          </div>
+          <div class="detail-item">
+            <select id="sel_gothra">
+              <option value="අංගීර" selected>අංගීර</option><option value="භෘගු">භෘගු</option>
+              <option value="අත්‍රි">අත්‍රි</option><option value="පුලස්ති">පුලස්ති</option>
+              <option value="මරීචි">මරීචි</option><option value="ක්‍රතු">ක්‍රතු</option>
+              <option value="වසිෂ්ඨ">වසිෂ්ඨ</option>
+            </select>
+            <span>ගෝත්‍ර</span>
+          </div>
+          <div class="detail-item">
+            <select id="sel_yoni">
+              <option value="අශ්ව">අශ්ව</option><option value="ඇත්">ඇත්</option>
+              <option value="එළු">එළු</option><option value="සර්ප">සර්ප</option>
+              <option value="බළල්">බළල්</option><option value="මීයා">මීයා</option>
+              <option value="ගව">ගව</option><option value="මීදෙන" selected>මීදෙන</option>
+              <option value="ව්‍යාඝ්‍ර">ව්‍යාඝ්‍ර</option><option value="මෘග">මෘග</option>
+              <option value="වානර">වානර</option><option value="නකුල">නකුල</option>
+              <option value="සිංහ">සිංහ</option>
+            </select>
+            <span>යෝනි</span>
+          </div>
+
+          <div class="detail-item">
+            <select id="sel_varna">
+              <option value="බ්‍රාහ්මණ" selected>බ්‍රාහ්මණ</option><option value="ක්ෂත්‍රිය">ක්ෂත්‍රිය</option>
+              <option value="වෛශ්‍ය">වෛශ්‍ය</option><option value="ශුද්‍ර">ශුද්‍ර</option>
+            </select>
+            <span>වර්ණ</span>
+          </div>
+          <div class="detail-item">
+            <select id="sel_rajju">
+              <option value="පාද">පාද</option><option value="ඌරු">ඌරු</option>
+              <option value="නාභි">නාභි</option><option value="කණ්ඨ">කණ්ඨ</option>
+              <option value="බාහු" selected>බාහු</option><option value="ශීර්ෂ">ශීර්ෂ</option>
+            </select>
+            <span>රජ්ජු</span>
+          </div>
+          <div class="detail-item">
+            <select id="sel_linga">
+              <option value="ස්ත්‍රී" selected>ස්ත්‍රී</option>
+              <option value="පුරුෂ">පුරුෂ</option>
+            </select>
+            <span>ලිංග</span>
+          </div>
+
+          <div class="detail-item">
+            <select id="sel_vruksha">
+              <option value="දිඹුල්" selected>දිඹුල්</option><option value="බෝ">බෝ</option>
+              <option value="නුග">නුග</option><option value="කොහොඹ">කොහොඹ</option>
+              <option value="මී">මී</option><option value="ඇසතු">ඇසතු</option>
+            </select>
+            <span>වෘක්ෂ</span>
+          </div>
+          <div class="detail-item">
+            <select id="sel_naadi">
+              <option value="පූර්ව" selected>පූර්ව</option>
+              <option value="මධ්‍ය">මධ්‍ය</option>
+              <option value="අන්ත">අන්ත</option>
+            </select>
+            <span>නාඩි</span>
+          </div>
+          <div class="detail-item">
+            <select id="sel_pakshi">
+              <option value="භේරුණ්ඩ">භේරුණ්ඩ</option><option value="පිඟාන">පිඟාන</option>
+              <option value="කවුඩා (කාක)" selected>කාක</option><option value="කෝකිල">කෝකිල</option>
+              <option value="මොනර">මොනර</option>
+            </select>
+            <span>පක්ෂි හිමිවේ.</span>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Block 3: හෝරා සහ යෝග -->
+        <div class="details-grid-2">
+          <div class="detail-item">
+            <select id="sel_thathkala_hora">
+              <option value="රවි">රවි</option><option value="සඳු">සඳු</option>
+              <option value="කුජ" selected>කුජ</option><option value="බුධ">බුධ</option>
+              <option value="ගුරු">ගුරු</option><option value="ශුක්‍ර">ශුක්‍ර</option>
+              <option value="ශනි">ශනි</option>
+            </select>
+            <span>තත්කාල හෝරාව</span>
+          </div>
+          <div class="detail-item">
+            <select id="sel_panchama_hora">
+              <option value="රවි">රවි</option><option value="සඳු">සඳු</option>
+              <option value="කුජ">කුජ</option><option value="බුධ" selected>බුධ</option>
+              <option value="ගුරු">ගුරු</option><option value="ශුක්‍ර">ශුක්‍ර</option>
+              <option value="ශනි">ශනි</option>
+            </select>
+            <span>පංචම කාලහෝරාව</span>
+          </div>
+
+          <div class="detail-item">
+            <select id="sel_yoga">
+              <option value="විෂ්කම්භ">විෂ්කම්භ</option><option value="ප්‍රීති">ප්‍රීති</option>
+              <option value="ආයුෂ්මත්">ආයුෂ්මත්</option><option value="ව්‍යාඝාත" selected>ව්‍යාඝාත</option>
+              <option value="සුකර්ම">සුකර්ම</option><option value="ධෘති">ධෘති</option>
+              <option value="ශූල">ශූල</option><option value="ගණ්ඩ">ගණ්ඩ</option>
+              <option value="වෘද්ධි">වෘද්ධි</option><option value="ධ්‍රැව">ධ්‍රැව</option>
+              <option value="ශුභ">ශුභ</option><option value="ශුක්ල">ශුක්ල</option>
+              <option value="බ්‍රහ්ම">බ්‍රහ්ම</option><option value="ඓන්ද්‍ර">ඓන්ද්‍ර</option>
+              <option value="වෛධෘති">වෛධෘති</option>
+            </select>
+            <span>යෝගය</span>
+          </div>
+          <div class="detail-item">
+            <select id="sel_karana">
+              <option value="බව" selected>බව</option><option value="බාලව">බාලව</option>
+              <option value="කෞලව">කෞලව</option><option value="තෛතිල">තෛතිල</option>
+              <option value="ගරජ">ගරජ</option><option value="වණිජ">වණිජ</option>
+              <option value="විෂ්ටි">විෂ්ටි</option><option value="ශකුනි">ශකුනි</option>
+              <option value="චතුෂ්පාද">චතුෂ්පාද</option><option value="නාග">නාග</option>
+              <option value="කිංස්තුඝ්න">කිංස්තුඝ්න</option>
+            </select>
+            <span>කරණය විය.</span>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <!-- Block 4: මහදශා ශේෂය -->
+        <div class="detail-item dasha-row">
+          <span>මහදශා ශේෂය</span>
+          <select id="sel_dasha_graha">
+            <option value="රවිට">රවිට</option><option value="සඳුට" selected>සඳුට</option>
+            <option value="කුජට">කුජට</option><option value="රාහුට">රාහුට</option>
+            <option value="ගුරුට">ගුරුට</option><option value="ශනිට">ශනිට</option>
+            <option value="බුධට">බුධට</option><option value="කේතුට">කේතුට</option>
+            <option value="ශුක්‍රට">ශුක්‍රට</option>
+          </select>
+          <select id="sel_dasha_yrs" class="num-pick"></select> <span>වර්ෂ</span>
+          <select id="sel_dasha_mos" class="num-pick"></select> <span>මාස</span>
+          <select id="sel_dasha_dys" class="num-pick"></select> <span>දින විය.</span>
+        </div>
+
       </div>
     </div>
   

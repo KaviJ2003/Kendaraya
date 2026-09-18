@@ -23,6 +23,8 @@ function initForm() {
       sel.insertBefore(emptyOpt, sel.firstChild);
       sel.selectedIndex = 0;
       initTwoKundaliCharts();
+      initAstrologyDetails();
+      initHeaderIntroData();
     }
   });
 
@@ -201,6 +203,100 @@ function initTwoKundaliCharts() {
     });
     box.appendChild(sel);
   });
+}
+function initHeaderIntroData() {
+  const rashis = [
+    "මේෂ", "වෘෂභ", "මිථුන", "කටක", "සිංහ", "කන්‍යා",
+    "තුලා", "වෘශ්චික", "ධනු", "මකර", "කුම්භ", "මීන"
+  ];
+
+  // 1. ශක රාශි Dropdown එක පිරවීම
+  const shakaRashiEl = document.getElementById('shaka_rashi');
+  if (shakaRashiEl) {
+    shakaRashiEl.innerHTML = '';
+    rashis.forEach(r => {
+      const opt = document.createElement('option');
+      opt.value = r;
+      opt.textContent = r;
+      if (r === "මීන") opt.selected = true; // පින්තූරයේ ඇති Default එක
+      shakaRashiEl.appendChild(opt);
+    });
+  }
+
+  // 2. අංක පිරවීමේ Helper ශ්‍රිතය
+  const fillSelectRange = (elId, start, end, selectedVal) => {
+    const el = document.getElementById(elId);
+    if (!el) return;
+    el.innerHTML = '';
+    for (let i = start; i <= end; i++) {
+      const valStr = i < 10 ? '0' + i : '' + i;
+      const opt = document.createElement('option');
+      opt.value = valStr;
+      opt.textContent = valStr;
+      if (i === selectedVal) opt.selected = true;
+      el.appendChild(opt);
+    }
+  };
+
+  // ශක වර්ෂය (1850 සිට 2050 දක්වා)
+  fillSelectRange('shaka_year', 1850, 2050, 1925);
+  // ශක රවි දින (1 සිට 31 දක්වා)
+  fillSelectRange('shaka_date', 1, 31, 22);
+
+  // ක්‍රි.ව. වර්ෂය (1950 සිට 2050 දක්වා)
+  fillSelectRange('ce_year', 1950, 2050, 2004);
+  // ක්‍රි.ව. දිනය (1 සිට 31 දක්වා)
+  fillSelectRange('ce_date', 1, 31, 5);
+}
+
+
+
+
+
+// රාශි 12 ලැයිස්තුව
+const allRashis = [
+  "මේෂ", "වෘෂභ", "මිථුන", "කටක", "සිංහ", "කන්‍යා",
+  "තුලා", "වෘශ්චික", "ධනු", "මකර", "කුම්භ", "මීන"
+];
+
+function initAstrologyDetails() {
+  // 1. රාශි 12 සහිත Dropdowns පිරවීම
+  document.querySelectorAll('.rashi-dropdown').forEach(sel => {
+    sel.innerHTML = '<option value="">තෝරන්න</option>';
+    allRashis.forEach(r => {
+      const opt = document.createElement('option');
+      opt.value = r;
+      opt.textContent = r;
+      sel.appendChild(opt);
+    });
+  });
+
+  // පින්තූරයේ පරිදි Defaults සැකසීම
+  if (document.getElementById('sel_lagna')) document.getElementById('sel_lagna').value = "සිංහ";
+  if (document.getElementById('sel_navamsha')) document.getElementById('sel_navamsha').value = "තුලා";
+  if (document.getElementById('sel_hora')) document.getElementById('sel_hora').value = "කටක";
+  if (document.getElementById('sel_drekkana')) document.getElementById('sel_drekkana').value = "මේෂ";
+  if (document.getElementById('sel_dwadashamsha')) document.getElementById('sel_dwadashamsha').value = "මේෂ";
+  if (document.getElementById('sel_trishamsha')) document.getElementById('sel_trishamsha').value = "මිථුන";
+
+  // 2. වර්ෂ (0-100), මාස (0-11), දින (0-30) පිරවීම
+  const populateNumbers = (id, max, defaultVal) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+    el.innerHTML = '';
+    for (let i = 0; i <= max; i++) {
+      const valStr = i < 10 ? '0' + i : '' + i;
+      const opt = document.createElement('option');
+      opt.value = valStr;
+      opt.textContent = valStr;
+      if (i === defaultVal) opt.selected = true;
+      el.appendChild(opt);
+    }
+  };
+
+  populateNumbers('sel_dasha_yrs', 100, 1);
+  populateNumbers('sel_dasha_mos', 11, 1);
+  populateNumbers('sel_dasha_dys', 30, 2);
 }
 
 document.addEventListener('DOMContentLoaded', initForm);

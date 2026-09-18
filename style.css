@@ -308,3 +308,111 @@ select:focus {
   border-color: #004ba0;
   background-color: #f0f5ff;
 }
+.k-header-intro {
+  margin-bottom: 20px;
+  font-size: 15px;
+  line-height: 2.3;
+  color: #111;
+}
+
+.intro-line {
+  margin: 6px 0;
+  text-align: justify;
+}
+
+.k-header-intro select,
+.time-input {
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: bold;
+  color: #0b3c73;
+  padding: 1px 4px;
+  border: 1px solid #4a76a8;
+  border-radius: 3px;
+  background: #f0f5ff;
+}
+
+.time-input {
+  width: 55px;
+  text-align: center;
+}
+
+.num-select {
+  min-width: 48px;
+  text-align: center;
+}
+
+/* Print සහ PDF වලදී පෙනුම සකස් කිරීම */
+@media print {
+  .k-header-intro select,
+  .time-input {
+    border: none !important;
+    background: transparent !important;
+    color: #000 !important;
+    padding: 0 2px !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    font-weight: bold !important;
+  }
+}
+
+
+
+/* විස්තර කොටස් Container එක */
+.k-details-section {
+  margin-top: 25px;
+  font-size: 15px;
+  color: #111;
+}
+
+.details-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 12px;
+  column-gap: 15px;
+}
+
+.details-grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 12px;
+  column-gap: 20px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-divider {
+  height: 1px;
+  background: #e0e0e0;
+  margin: 15px 0;
+}
+
+.dasha-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  font-weight: 500;
+}
+
+.num-pick {
+  min-width: 50px;
+  text-align: center;
+}
+
+/* Print සහ PDF වලදී Dropdown Box borders ඉවත් වී අකුරු පැහැදිලිව වැටීම */
+@media print {
+  .k-details-section select {
+    border: none !important;
+    background: transparent !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    font-weight: bold !important;
+    color: #000 !important;
+    padding: 0 2px !important;
+  }
+}
